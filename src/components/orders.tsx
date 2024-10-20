@@ -1,3 +1,4 @@
+import { Input } from '@/components/input';
 import {
   Card,
   CardDescription,
@@ -11,6 +12,8 @@ export function Orders() {
       <CardHeader>
         <CardTitle>Orders</CardTitle>
         <CardDescription>Record your customer orders</CardDescription>
+
+        <Input />
       </CardHeader>
     </Card>
   );
