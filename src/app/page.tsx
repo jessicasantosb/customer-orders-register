@@ -1,5 +1,9 @@
+import { Orders } from '@/components';
+
 export default function Home() {
   return (
-   <h1>Home</h1>
+    <main className='container px-1 py-10 md:p-10'>
+      <Orders />
+    </main>
   );
 }
