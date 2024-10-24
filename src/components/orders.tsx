@@ -1,6 +1,7 @@
-import { FilterDropdown, Input } from '@/components';
+import { FilterDropdown, Input, OrdersTable } from '@/components';
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -17,6 +18,10 @@ export function Orders() {
           <FilterDropdown />
         </div>
       </CardHeader>
+
+      <CardContent>
+        <OrdersTable />
+      </CardContent>
     </Card>
   );
 }
