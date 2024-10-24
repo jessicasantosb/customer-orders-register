@@ -1,4 +1,4 @@
-import { Input } from '@/components/input';
+import { FilterDropdown, Input } from '@/components';
 import {
   Card,
   CardDescription,
@@ -12,8 +12,10 @@ export function Orders() {
       <CardHeader>
         <CardTitle>Orders</CardTitle>
         <CardDescription>Record your customer orders</CardDescription>
-
-        <Input />
+        <div className='pt-4 flex justify-between'>
+          <Input />
+          <FilterDropdown />
+        </div>
       </CardHeader>
     </Card>
   );
