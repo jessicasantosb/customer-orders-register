@@ -7,11 +7,10 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from './ui/dropdown-menu';
 
 export function FilterDropdown() {
-  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -24,17 +23,15 @@ export function FilterDropdown() {
       <DropdownMenuContent>
         <DropdownMenuLabel>Filter by:</DropdownMenuLabel>
 
-        <DropdownMenuSeparator>
-          <DropdownMenuRadioGroup>
-            <DropdownMenuRadioItem value='all'>All</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value='pending'>
-              Pending
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value='completed'>
-              Completed
-            </DropdownMenuRadioItem>
-          </DropdownMenuRadioGroup>
-        </DropdownMenuSeparator>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuRadioGroup>
+          <DropdownMenuRadioItem value='all'>All</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value='pending'>Pending</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value='completed'>
+            Completed
+          </DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
