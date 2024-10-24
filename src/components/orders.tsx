@@ -1,4 +1,4 @@
-import { FilterDropdown, Input, OrdersTable } from '@/components';
+import { FilterDropdown, Input, OrdersTable, Pagination } from '@/components';
 import {
   Card,
   CardContent,
@@ -19,8 +19,9 @@ export function Orders() {
         </div>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className=''>
         <OrdersTable />
+        <Pagination />
       </CardContent>
     </Card>
   );
