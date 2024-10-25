@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import { FilterDropdown, Input, OrdersTable, Pagination } from '@/components';
 import {
   Card,
@@ -7,7 +9,13 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-export function Orders() {
+export async function Orders() {
+  const response = await axios.get(
+    'https://apis.codante.io/api/orders-api/orders',
+  );
+
+  const orders = response.data.data
+
   return (
     <Card>
       <CardHeader>
@@ -20,7 +28,7 @@ export function Orders() {
       </CardHeader>
 
       <CardContent className=''>
-        <OrdersTable />
+        <OrdersTable orders={orders} />
         <Pagination />
       </CardContent>
     </Card>

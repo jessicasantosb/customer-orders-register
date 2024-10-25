@@ -1,4 +1,6 @@
 import { ChevronsUpDown } from 'lucide-react';
+
+import { OrdersTableProps } from '@/lib/types';
 import { Badge } from './ui/badge';
 import {
   Table,
@@ -9,7 +11,9 @@ import {
   TableRow,
 } from './ui/table';
 
-export function OrdersTable() {
+export function OrdersTable({ orders }: OrdersTableProps) {
+  console.log(orders);
+
   return (
     <Table>
       <TableHeader>
@@ -25,37 +29,36 @@ export function OrdersTable() {
       </TableHeader>
 
       <TableBody>
-        <TableRow>
-          <TableCell>
-            <div className='font-medium'>Emily Carter</div>
-            <div className='hidden md:inline text-sm text-muted-foreground'>
-              emily.carter@example.com
-            </div>
-          </TableCell>
-          <TableCell>
-            <Badge variant='outline' className='text-xs'>
-              Pending
-            </Badge>
-          </TableCell>
-          <TableCell className='hidden md:table-cell'>2024-10-24</TableCell>
-          <TableCell className='text-right'>R$100,00</TableCell>
-        </TableRow>
-
-        <TableRow>
-          <TableCell>
-            <div className='font-medium'>Jason Miller</div>
-            <div className='hidden md:inline  text-sm text-muted-foreground'>
-              jason.miller@example.com
-            </div>
-          </TableCell>
-          <TableCell>
-            <Badge variant='outline' className='text-xs'>
-              Completed
-            </Badge>
-          </TableCell>
-          <TableCell className='hidden md:table-cell'>2023-10-20</TableCell>
-          <TableCell className='text-right'>R$500,00</TableCell>
-        </TableRow>
+        {orders.map(
+          ({
+            id,
+            customer_name,
+            customer_email,
+            status,
+            order_date,
+            amount_in_cents,
+          }) => {
+            return (
+              <TableRow key={id}>
+                <TableCell>
+                  <div className='font-medium'>{customer_name}</div>
+                  <div className='hidden md:inline text-sm text-muted-foreground'>
+                    {customer_email}
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <Badge variant='outline' className='text-xs capitalize'>
+                    {status}
+                  </Badge>
+                </TableCell>
+                <TableCell className='hidden md:table-cell'>
+                  {order_date.toString()}
+                </TableCell>
+                <TableCell className='text-right'>{amount_in_cents}</TableCell>
+              </TableRow>
+            );
+          },
+        )}
       </TableBody>
     </Table>
   );
