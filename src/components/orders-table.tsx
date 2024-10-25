@@ -1,6 +1,7 @@
 import { ChevronsUpDown } from 'lucide-react';
 
 import { OrdersTableProps } from '@/lib/types';
+import { formatPrice } from '@/utils/formatPrice';
 import { Badge } from './ui/badge';
 import {
   Table,
@@ -54,7 +55,9 @@ export function OrdersTable({ orders }: OrdersTableProps) {
                 <TableCell className='hidden md:table-cell'>
                   {order_date.toString()}
                 </TableCell>
-                <TableCell className='text-right'>{amount_in_cents}</TableCell>
+                <TableCell className='text-right'>
+                  {formatPrice(amount_in_cents)}
+                </TableCell>
               </TableRow>
             );
           },
