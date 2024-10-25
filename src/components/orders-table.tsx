@@ -1,8 +1,6 @@
 import { ChevronsUpDown } from 'lucide-react';
 
-import { OrdersTableProps } from '@/lib/types';
-import { formatPrice } from '@/utils/formatPrice';
-import { Badge } from './ui/badge';
+import { Badge } from '@/components/ui/badge';
 import {
   Table,
   TableBody,
@@ -10,11 +8,11 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from './ui/table';
+} from '@/components/ui/table';
+import { OrdersTableProps } from '@/lib/types';
+import { formatPrice } from '@/utils/formatPrice';
 
 export function OrdersTable({ orders }: OrdersTableProps) {
-  console.log(orders);
-
   return (
     <Table>
       <TableHeader>
