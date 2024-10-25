@@ -16,10 +16,11 @@ export function OrdersTable() {
         <TableRow>
           <TableHead>Clients</TableHead>
           <TableHead>Status</TableHead>
-          <TableHead className='flex items-center gap-2'>
+          <TableHead className='hidden md:flex items-center gap-2'>
             Data
             <ChevronsUpDown size={14} />
           </TableHead>
+          <TableHead className='text-right'>Valor</TableHead>
         </TableRow>
       </TableHeader>
 
