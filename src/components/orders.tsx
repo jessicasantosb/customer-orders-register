@@ -8,13 +8,19 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { SearchParams } from '@/lib/types';
 
-export async function Orders() {
+export async function Orders({ searchParams }: SearchParams) {
   const response = await axios.get(
     'https://apis.codante.io/api/orders-api/orders',
+    {
+      params: {
+        q: searchParams?.search,
+      },
+    },
   );
 
-  const orders = response.data.data
+  const orders = response.data.data;
 
   return (
     <Card>

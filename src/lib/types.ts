@@ -12,3 +12,7 @@ export type OrderProps = {
 export type OrdersTableProps = {
   orders: OrderProps[];
 };
+
+export type SearchParams = {
+  searchParams?: { search?: string };
+};
