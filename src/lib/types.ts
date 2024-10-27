@@ -14,5 +14,5 @@ export type OrdersTableProps = {
 };
 
 export type SearchParams = {
-  searchParams?: { search?: string };
+  searchParams?: { q?: string; status?: string };
 };

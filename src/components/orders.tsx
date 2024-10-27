@@ -15,7 +15,8 @@ export async function Orders({ searchParams }: SearchParams) {
     'https://apis.codante.io/api/orders-api/orders',
     {
       params: {
-        q: searchParams?.search,
+        search: searchParams?.q,
+        status: searchParams?.status,
       },
     },
   );
