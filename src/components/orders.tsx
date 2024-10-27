@@ -17,6 +17,7 @@ export async function Orders({ searchParams }: SearchParams) {
       params: {
         search: searchParams?.q,
         status: searchParams?.status,
+        sort: searchParams?.sort
       },
     },
   );

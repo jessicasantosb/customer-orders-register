@@ -14,5 +14,7 @@ export type OrdersTableProps = {
 };
 
 export type SearchParams = {
-  searchParams?: { q?: string; status?: string };
+  searchParams?: { q?: string; status?: string; sort?: string };
 };
+
+export type DirectionKey = 'order_date' | 'amount_in_cents';
