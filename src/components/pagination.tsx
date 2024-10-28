@@ -32,7 +32,10 @@ export function Pagination({ links }: PaginationProps) {
   return (
     <PaginationComponent>
       <PaginationContent className='[&>*]:hidden [&>*]:md:inline-flex'>
-        <PaginationItem>
+        <PaginationItem
+          onClick={() =>
+            handlePagination(Number(searchParams.get('page') || 1) - 1)
+          }>
           <PaginationPrevious />
         </PaginationItem>
 
@@ -49,17 +52,18 @@ export function Pagination({ links }: PaginationProps) {
           }
 
           return (
-            <PaginationItem key={id}>
-              <PaginationLink
-                isActive={active}
-                onClick={() => handlePagination(Number(label))}>
-                {label}
-              </PaginationLink>
+            <PaginationItem
+              key={id}
+              onClick={() => handlePagination(Number(label))}>
+              <PaginationLink isActive={active}>{label}</PaginationLink>
             </PaginationItem>
           );
         })}
 
-        <PaginationItem>
+        <PaginationItem
+          onClick={() =>
+            handlePagination(Number(searchParams.get('page') || 1) + 1)
+          }>
           <PaginationNext />
         </PaginationItem>
       </PaginationContent>
