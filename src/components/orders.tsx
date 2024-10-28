@@ -26,7 +26,7 @@ export async function Orders({ searchParams }: SearchParams) {
   const orders = response.data.data;
   const links: Links = response.data.meta.links;
 
-  links.map((link, index) => ({
+  const linksWithId = links.map((link, index) => ({
     ...link,
     id: index,
   }));
@@ -44,7 +44,7 @@ export async function Orders({ searchParams }: SearchParams) {
 
       <CardContent className=''>
         <OrdersTable orders={orders} />
-        <Pagination links={links} />
+        <Pagination links={linksWithId} />
       </CardContent>
     </Card>
   );
