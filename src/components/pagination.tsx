@@ -1,3 +1,6 @@
+'use client';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
 import {
   Pagination as PaginationComponent,
   PaginationContent,
@@ -6,9 +9,26 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from './ui/pagination';
+} from '@/components/ui/pagination';
+import { PaginationProps } from '@/lib/types';
 
-export function Pagination() {
+export function Pagination({ links }: PaginationProps) {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const handlePagination = (page: number) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (page > 1) {
+      params.set('page', page.toString());
+    } else {
+      params.delete('page');
+    }
+
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
   return (
     <PaginationComponent>
       <PaginationContent className='[&>*]:hidden [&>*]:md:inline-flex'>
@@ -16,33 +36,28 @@ export function Pagination() {
           <PaginationPrevious />
         </PaginationItem>
 
-        <PaginationItem>
-          <PaginationLink isActive={true}>1</PaginationLink>
-        </PaginationItem>
+        {links.map(({ label, active, id }) => {
+          if (label.includes('Anterior') || label.includes('Próximo'))
+            return null;
 
-        <PaginationItem>
-          <PaginationLink>2</PaginationLink>
-        </PaginationItem>
+          if (label === '...') {
+            return (
+              <PaginationItem key={id}>
+                <PaginationEllipsis />
+              </PaginationItem>
+            );
+          }
 
-        <PaginationItem>
-          <PaginationLink>3</PaginationLink>
-        </PaginationItem>
-
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-
-        <PaginationItem>
-          <PaginationLink>8</PaginationLink>
-        </PaginationItem>
-
-        <PaginationItem>
-          <PaginationLink>9</PaginationLink>
-        </PaginationItem>
-
-        <PaginationItem>
-          <PaginationLink>10</PaginationLink>
-        </PaginationItem>
+          return (
+            <PaginationItem key={id}>
+              <PaginationLink
+                isActive={active}
+                onClick={() => handlePagination(Number(label))}>
+                {label}
+              </PaginationLink>
+            </PaginationItem>
+          );
+        })}
 
         <PaginationItem>
           <PaginationNext />

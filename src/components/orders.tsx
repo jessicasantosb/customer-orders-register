@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { SearchParams } from '@/lib/types';
+import { Links, SearchParams } from '@/lib/types';
 
 export async function Orders({ searchParams }: SearchParams) {
   const response = await axios.get(
@@ -17,12 +17,19 @@ export async function Orders({ searchParams }: SearchParams) {
       params: {
         search: searchParams?.q,
         status: searchParams?.status,
-        sort: searchParams?.sort
+        sort: searchParams?.sort,
+        page: searchParams?.page,
       },
     },
   );
 
   const orders = response.data.data;
+  const links: Links = response.data.meta.links;
+
+  links.map((link, index) => ({
+    ...link,
+    id: index,
+  }));
 
   return (
     <Card>
@@ -37,7 +44,7 @@ export async function Orders({ searchParams }: SearchParams) {
 
       <CardContent className=''>
         <OrdersTable orders={orders} />
-        <Pagination />
+        <Pagination links={links} />
       </CardContent>
     </Card>
   );

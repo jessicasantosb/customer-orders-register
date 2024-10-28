@@ -14,7 +14,18 @@ export type OrdersTableProps = {
 };
 
 export type SearchParams = {
-  searchParams?: { q?: string; status?: string; sort?: string };
+  searchParams?: { q?: string; status?: string; sort?: string; page?: number };
 };
 
 export type DirectionKey = 'order_date' | 'amount_in_cents';
+
+export type Links = {
+  id: number;
+  url: string;
+  label: string;
+  active: boolean;
+}[];
+
+export type PaginationProps = {
+  links: Links;
+};
