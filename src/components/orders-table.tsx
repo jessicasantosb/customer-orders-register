@@ -84,7 +84,9 @@ export function OrdersTable({ orders }: OrdersTableProps) {
                   </div>
                 </TableCell>
                 <TableCell>
-                  <Badge variant='outline' className='text-xs capitalize'>
+                  <Badge
+                    variant='outline'
+                    className={`text-xs capitalize ${status === 'pending' ? 'bg-red-200' : 'bg-green-200'}`}>
                     {status}
                   </Badge>
                 </TableCell>
