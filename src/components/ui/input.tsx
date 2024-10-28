@@ -26,11 +26,11 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     return (
       <div className='relative'>
-        <Search className='absolute text-muted-foreground h-4 top-3 left-1' />
+        <Search className='absolute text-primary h-4 top-3 left-1' />
         <input
           type={type}
           className={cn(
-            'w-full h-10 pl-8 pr-2 md:w-[200px] lg:w-[336px] flex border-input rounded-md bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+            'w-full h-10 pl-8 pr-2 md:w-[200px] lg:w-[336px] flex border-input rounded-md bg-background text-sm ring-offset-primary file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-primary placeholder:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50',
             className,
           )}
           ref={ref}
