@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000" width="99">
-  <img src="https://img.icons8.com/?size=100&id=yjSayFwWHyCo&format=png&color=000000" width="99">
+  <img src="https://img.icons8.com/?size=100&id=Xf1sHBmY73hA&format=png&color=000000" width="99">
 </p>
 <h1 align="center">Customer Orders Register</h1>
 <p align="center">
