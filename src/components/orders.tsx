@@ -42,7 +42,7 @@ export async function Orders({ searchParams }: SearchParams) {
         </div>
       </CardHeader>
 
-      <CardContent className=''>
+      <CardContent className='flex flex-col gap-6'>
         <OrdersTable orders={orders} />
         <Pagination links={linksWithId} />
       </CardContent>

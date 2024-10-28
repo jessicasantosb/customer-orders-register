@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
+import * as React from 'react';
 
-import { cn } from '@/lib/utils';
 import { ButtonProps, buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
@@ -30,7 +30,11 @@ const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<'li'>
 >(({ className, ...props }, ref) => (
-  <li ref={ref} className={cn('cursor-pointer', className)} {...props} />
+  <li
+    ref={ref}
+    className={cn('cursor-pointer select-none', className)}
+    {...props}
+  />
 ));
 PaginationItem.displayName = 'PaginationItem';
 
@@ -48,6 +52,7 @@ const PaginationLink = ({
   <a
     aria-current={isActive ? 'page' : undefined}
     className={cn(
+      'select-none',
       buttonVariants({
         variant: isActive ? 'outline' : 'ghost',
         size,

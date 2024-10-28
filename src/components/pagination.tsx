@@ -33,6 +33,7 @@ export function Pagination({ links }: PaginationProps) {
     <PaginationComponent>
       <PaginationContent className='[&>*]:hidden [&>*]:md:inline-flex'>
         <PaginationItem
+          className={`${!links[0].url && 'cursor-auto pointer-events-none text-slate-300'}`}
           onClick={() =>
             handlePagination(Number(searchParams.get('page') || 1) - 1)
           }>
@@ -61,6 +62,7 @@ export function Pagination({ links }: PaginationProps) {
         })}
 
         <PaginationItem
+          className={`${!links[links.length - 1].url && 'cursor-auto pointer-events-none text-slate-300'}`}
           onClick={() =>
             handlePagination(Number(searchParams.get('page') || 1) + 1)
           }>
